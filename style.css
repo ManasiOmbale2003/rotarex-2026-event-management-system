@@ -1,0 +1,193 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f3d91, #1e5dbf); /* professional blue gradient */
+    color: #ffffff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ================= WATERMARK LOGO ================= */
+body::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 650px;
+    height: 650px;
+    background: url("../images/logo.png") no-repeat center/contain;
+    opacity: 0.15; /* more visible */
+    transform: translate(-50%, -50%);
+    animation: rotateBg 180s linear infinite; /* slow rotation */
+    z-index: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.3)); /* makes watermark pop */
+}
+
+@keyframes rotateBg {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ================= GLASS ================= */
+.glass {
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.14),
+        rgba(255,255,255,0.04)
+    );
+    backdrop-filter: blur(22px);
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+    position: relative;
+    z-index: 2;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    padding: 18px 60px;
+    z-index: 10;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand img {
+    width: 70px;
+    animation: spinLogo 18s linear infinite;
+}
+
+@keyframes spinLogo {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.brand span {
+    font-size: 26px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #ff9800, #4fc3f7);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+nav a {
+    margin-left: 22px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.nav-btn {
+    padding: 10px 24px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ff9800, #4fc3f7);
+    color: #000;
+}
+
+/* ================= HERO ================= */
+.hero {
+    max-width: 950px;
+    margin: 100px auto;
+    padding: 70px;
+    text-align: center;
+    animation: fadeUp 1.3s ease;
+}
+
+.hero h1 {
+    font-size: 54px;
+    background: linear-gradient(135deg, #ff9800, #4fc3f7);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero h3 {
+    margin: 14px 0;
+    font-weight: 400;
+}
+
+.hero p {
+    opacity: 0.88;
+    line-height: 1.8;
+}
+
+/* ================= SECTIONS ================= */
+.section {
+    max-width: 950px;
+    margin: 70px auto;
+    padding: 60px;
+    animation: fadeUp 1.3s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= CARDS ================= */
+.cards {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    flex: 1;
+    padding: 35px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 45px rgba(79,195,247,0.4);
+}
+
+/* ================= BUTTON ================= */
+.btn {
+    padding: 14px 34px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff9800, #4fc3f7);
+    font-weight: 500;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 35px;
+    opacity: 0.75;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .navbar {
+        padding: 18px 30px;
+    }
+}
